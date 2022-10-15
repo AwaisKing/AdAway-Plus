@@ -1,5 +1,6 @@
 ## [6.0.6] - 2022-10-15
 
+- Backported to Android 5.0+
 - Removed all telemetry.
 - Added ThreeTenABP for JSR-310 replacement
 - Added [badmojr's 1Hosts](https://github.com/badmojr/1Hosts)

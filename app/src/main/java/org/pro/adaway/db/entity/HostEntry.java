@@ -16,7 +16,9 @@ import androidx.room.PrimaryKey;
 )
 public class HostEntry {
     @PrimaryKey
+    @NonNull
     private String host;
+    @NonNull
     private ListType type;
     private String redirection;
 
