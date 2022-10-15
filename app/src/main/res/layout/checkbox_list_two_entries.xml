@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="72dp">
+    android:layout_height="wrap_content"
+    android:maxHeight="96dp"
+    android:minHeight="72dp">
 
-    <CheckBox
+    <com.google.android.material.checkbox.MaterialCheckBox
         android:id="@+id/checkbox_list_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:clickable="false"
@@ -19,37 +20,31 @@
         app:layout_constraintTop_toTopOf="parent" />
     <!-- focusable and clickable MUST be false to handle click and longClick in ListView Activity -->
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/checkbox_list_text"
         style="@style/TextAppearance.MaterialComponents.Subtitle1"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ellipsize="end"
         android:singleLine="true"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/checkbox_list_checkbox"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Some text" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/checkbox_list_subtext"
         style="@android:style/TextAppearance.Material.Caption"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="0dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:ellipsize="end"
         android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/checkbox_list_checkbox"
         app:layout_constraintTop_toBottomOf="@+id/checkbox_list_text"
         tools:text="Some details" />
 </androidx.constraintlayout.widget.ConstraintLayout>

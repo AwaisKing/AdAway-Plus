@@ -5,12 +5,12 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/card_spacing">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/adware_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             android:layout_marginRight="@dimen/card_inner_padding"
             android:background="@color/card_spacer" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/adware_description_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             android:layout_marginRight="@dimen/card_inner_padding"
             android:background="@color/card_spacer" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/adware_status_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,12 +49,12 @@
             android:text="@string/adware_scanning"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
 
+        <!-- todo replace with RecyclerView -->
         <ListView
             android:id="@+id/adware_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="10"
             tools:listitem="@layout/list_two_entries" />
-
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </com.google.android.material.card.MaterialCardView>

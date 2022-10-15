@@ -7,10 +7,6 @@
             app:key="@string/pref_open_hosts_key"
             app:persistent="false"
             app:title="@string/pref_root_open_hosts" />
-        <SwitchPreferenceCompat
-            app:defaultValue="@bool/pref_never_reboot_def"
-            app:key="@string/pref_never_reboot_key"
-            app:title="@string/pref_never_reboot" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -55,5 +51,4 @@
             app:key="@string/pref_webserver_icon_key"
             app:title="@string/pref_webserver_icon" />
     </PreferenceCategory>
-
 </PreferenceScreen>

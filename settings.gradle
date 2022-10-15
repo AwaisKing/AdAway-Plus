@@ -1,1 +1,18 @@
-include ':app', ':sentrystub', ':tcpdump', ':webserver'
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+        maven { url 'https://maven.google.com/' }
+        maven { url 'https://jcenter.bintray.com/' }
+        maven { url 'https://repo1.maven.org/maven2/' }
+        maven { url 'https://maven.java.net/content/groups/public/' }
+    }
+}
+
+rootProject.name = 'AdAway Plus'
+include ':app',
+//':sentrystub',
+':tcpdump',
+':webserver'

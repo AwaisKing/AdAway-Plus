@@ -3,34 +3,29 @@ import com.android.build.gradle.internal.tasks.LibraryJniLibsTask
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'org.pro.adaway.libpcap'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 33
+    }
+
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
         }
     }
 
-    compileSdkVersion 32
-    buildToolsVersion '32.0.0'
-    ndkVersion '25.1.8937393'
-    namespace 'org.adaway.libpcap'
-
-    defaultConfig {
-        minSdkVersion 26
-        targetSdkVersion 32
-    }
-
     buildFeatures {
-        buildConfig = false
+        buildConfig false
     }
 
+    ndkVersion '25.1.8937393'
     externalNativeBuild {
         ndkBuild {
             path 'jni/Android.mk'
         }
-    }
-
-    sonarqube {
-        skipProject = true
     }
 }
 
@@ -68,4 +63,3 @@ def renameJniLibAsExecutable = tasks.register('renameJniLibAsExecutable', Copy) 
 tasks.withType(LibraryJniLibsTask) {
     dependsOn renameJniLibAsExecutable
 }
-

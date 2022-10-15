@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
 
     <FrameLayout
         android:id="@+id/loadingFrameLayout"
-        app:layout_constraintHeight_percent="0.20"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.20"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -20,29 +21,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:indeterminate="true"
-            android:indeterminateTint="?android:attr/colorControlNormal" />
+            android:indeterminateTint="?colorControlNormal" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/syncedImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/welcome_sync_done_logo"
             android:visibility="invisible"
-            app:srcCompat="@drawable/baseline_check_24"
-            app:tint="?android:attr/colorControlNormal" />
+            app:srcCompat="@drawable/baseline_check_24" />
 
-        <ImageView
-            android:id="@+id/errorImageView"
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/errorSyncImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/welcome_sync_error_logo"
             android:visibility="invisible"
             app:srcCompat="@drawable/ic_cloud_off_24dp"
-            app:tint="?android:attr/colorControlNormal" />
-
+            app:tint="?colorControlNormal" />
     </FrameLayout>
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/headerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,43 +52,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loadingFrameLayout" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/summaryTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:justificationMode="inter_word"
+        android:padding="6dp"
         android:text="@string/welcome_sync_summary"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/headerTextView" />
 
-    <TextView
-        android:id="@+id/errorTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:layout_marginTop="32dp"
-        android:gravity="fill_vertical"
-        android:text="@string/welcome_sync_error"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/summaryTextView" />
-
-    <ImageView
-        android:id="@+id/retryImageView"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="@string/welcome_sync_retry_logo"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/errorTextView"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/retryCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:minHeight="64dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardMaxElevation="0dp"
+        app:contentPadding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/summaryTextView"
-        app:srcCompat="@drawable/ic_sync_24dp" />
+        app:layout_constraintVertical_bias="0.15"
+        app:rippleColor="?colorButtonNormal"
+        app:strokeColor="?colorControlNormal"
+        app:strokeWidth="1dp">
 
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="64dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/welcome_sync_retry_logo"
+                android:padding="6dp"
+                app:srcCompat="@drawable/ic_sync_24dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/errorTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_sync_error"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

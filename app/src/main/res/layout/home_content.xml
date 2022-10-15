@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,93 +9,118 @@
         android:id="@+id/headerFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="?attr/colorPrimary"
+        android:background="?colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </FrameLayout>
-
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/versionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:background="?selectableItemBackground"
+        android:padding="8dp"
         android:textAlignment="viewEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="?android:textColorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Version" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logoImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
         android:contentDescription="@string/app_logo"
-        app:layout_constraintBottom_toTopOf="@+id/allowedHostCardView"
+        app:layout_constraintBottom_toTopOf="@id/allowedHostCardView"
         app:layout_constraintDimensionRatio="1"
         app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintStart_toStartOf="@+id/headerFrameLayout"
-        app:layout_constraintTop_toTopOf="@+id/headerFrameLayout"
+        app:layout_constraintStart_toStartOf="@id/headerFrameLayout"
+        app:layout_constraintTop_toTopOf="@id/headerFrameLayout"
         app:srcCompat="@mipmap/icon_round" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/appNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/appDescriptionTextView"
-        app:layout_constraintEnd_toEndOf="@+id/headerFrameLayout"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/logoImageView"
-        app:layout_constraintTop_toTopOf="@+id/allowedHostCardView" />
+        android:textColor="?android:textColorPrimary"
+        app:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintBottom_toTopOf="@id/appDescriptionTextView"
+        app:layout_constraintEnd_toEndOf="@id/headerFrameLayout"
+        app:layout_constraintStart_toEndOf="@id/logoImageView"
+        app:layout_constraintTop_toTopOf="@id/allowedHostCardView" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/appDescriptionTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/app_description"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/headerFrameLayout"
-        app:layout_constraintEnd_toEndOf="@+id/headerFrameLayout"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/logoImageView"
-        app:layout_constraintTop_toBottomOf="@+id/appNameTextView" />
+        app:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintBottom_toTopOf="@id/headerFrameLayout"
+        app:layout_constraintEnd_toEndOf="@id/headerFrameLayout"
+        app:layout_constraintStart_toEndOf="@id/logoImageView"
+        app:layout_constraintTop_toBottomOf="@id/appNameTextView" />
 
-    <androidx.cardview.widget.CardView
+    <!-- blocked card view -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationY="4dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@id/blockedHostCardView"
+        app:layout_constraintEnd_toEndOf="@id/blockedHostCardView"
+        app:layout_constraintStart_toStartOf="@id/blockedHostCardView"
+        app:layout_constraintTop_toTopOf="@id/blockedHostCardView"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardView.Round">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/blocked_hosts_label"
+            android:padding="5dp"
+            app:srcCompat="@drawable/baseline_block_24"
+            app:tint="@color/blocked" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/blockedHostCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:elevation="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="4dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
         app:contentPaddingTop="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/headerFrameLayout"
-        app:layout_constraintEnd_toStartOf="@+id/badge1Space"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintBottom_toBottomOf="@id/headerFrameLayout"
+        app:layout_constraintEnd_toStartOf="@id/contentGuidelineVertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout">
+        app:layout_constraintTop_toBottomOf="@id/headerFrameLayout">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="16dp">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/blockedHostCounterTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -105,73 +129,62 @@
                 android:textStyle="bold"
                 tools:text="2250" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/blockedHostTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/blocked_hosts_label" />
-
         </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
+    <!-- allowed card view -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:elevation="10dp"
-        android:shape="ring"
-        app:cardCornerRadius="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/blockedHostCardView"
-        app:layout_constraintEnd_toEndOf="@+id/blockedHostCardView"
-        app:layout_constraintStart_toStartOf="@+id/blockedHostCardView"
-        app:layout_constraintTop_toTopOf="@+id/blockedHostCardView">
+        android:translationY="4dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@id/allowedHostCardView"
+        app:layout_constraintEnd_toEndOf="@id/allowedHostCardView"
+        app:layout_constraintStart_toStartOf="@id/allowedHostCardView"
+        app:layout_constraintTop_toTopOf="@id/allowedHostCardView"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardView.Round">
 
-        <ImageView
-            android:id="@+id/blockedHostImageView"
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/blocked_hosts_label"
-            android:elevation="15dp"
-            app:srcCompat="@drawable/baseline_block_24"
-            app:tint="@color/blocked" />
-    </androidx.cardview.widget.CardView>
+            android:contentDescription="@string/allowed_hosts_label"
+            android:padding="5dp"
+            app:srcCompat="@drawable/baseline_check_24"
+            app:tint="@color/allowed" />
+    </com.google.android.material.card.MaterialCardView>
 
-    <Space
-        android:id="@+id/badge1Space"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/headerFrameLayout"
-        app:layout_constraintEnd_toStartOf="@id/allowedHostCardView"
-        app:layout_constraintHorizontal_weight="0.2"
-        app:layout_constraintStart_toEndOf="@id/blockedHostCardView"
-        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout" />
-
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/allowedHostCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:elevation="10dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
         app:contentPaddingTop="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/headerFrameLayout"
-        app:layout_constraintEnd_toStartOf="@+id/badge2Space"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/badge1Space"
-        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout">
+        app:layout_constraintBottom_toBottomOf="@id/headerFrameLayout"
+        app:layout_constraintEnd_toStartOf="@id/contentGuidelineVertical1"
+        app:layout_constraintStart_toEndOf="@id/contentGuidelineVertical"
+        app:layout_constraintTop_toBottomOf="@id/headerFrameLayout">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="16dp">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/allowedHostCounterTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -180,74 +193,62 @@
                 android:textStyle="bold"
                 tools:text="25" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/allowedHostTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/allowed_hosts_label" />
-
         </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
+    <!-- redirected card view -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:elevation="10dp"
-        android:shape="ring"
-        app:cardCornerRadius="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/allowedHostCardView"
-        app:layout_constraintEnd_toEndOf="@+id/allowedHostCardView"
-        app:layout_constraintStart_toStartOf="@+id/allowedHostCardView"
-        app:layout_constraintTop_toTopOf="@+id/allowedHostCardView">
+        android:translationY="4dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@id/redirectHostCardView"
+        app:layout_constraintEnd_toEndOf="@id/redirectHostCardView"
+        app:layout_constraintStart_toStartOf="@id/redirectHostCardView"
+        app:layout_constraintTop_toTopOf="@id/redirectHostCardView"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardView.Round">
 
-        <ImageView
-            android:id="@+id/allowedHostImageView"
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="5dp"
-            android:contentDescription="@string/allowed_hosts_label"
-            android:elevation="15dp"
-            app:srcCompat="@drawable/baseline_check_24"
-            app:tint="@color/allowed" />
-    </androidx.cardview.widget.CardView>
+            android:contentDescription="@string/redirect_hosts_label"
+            android:padding="5dp"
+            app:srcCompat="@drawable/baseline_compare_arrows_24"
+            app:tint="@color/redirected" />
+    </com.google.android.material.card.MaterialCardView>
 
-    <Space
-        android:id="@+id/badge2Space"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/headerFrameLayout"
-        app:layout_constraintEnd_toStartOf="@id/redirectHostCardView"
-        app:layout_constraintHorizontal_weight="0.2"
-        app:layout_constraintStart_toEndOf="@id/allowedHostCardView"
-        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout" />
-
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/redirectHostCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:elevation="10dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
         app:contentPaddingTop="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/headerFrameLayout"
+        app:layout_constraintBottom_toBottomOf="@id/headerFrameLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/badge2Space"
-        app:layout_constraintTop_toBottomOf="@+id/headerFrameLayout">
+        app:layout_constraintStart_toEndOf="@id/contentGuidelineVertical1"
+        app:layout_constraintTop_toBottomOf="@id/headerFrameLayout">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="16dp">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/redirectHostCounterTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -256,310 +257,308 @@
                 android:textStyle="bold"
                 tools:text="2" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/redirectHostTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/redirect_hosts_label" />
-
         </androidx.appcompat.widget.LinearLayoutCompat>
+    </com.google.android.material.card.MaterialCardView>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:elevation="10dp"
-        android:shape="ring"
-        app:cardCornerRadius="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/redirectHostCardView"
-        app:layout_constraintEnd_toEndOf="@+id/redirectHostCardView"
-        app:layout_constraintStart_toStartOf="@+id/redirectHostCardView"
-        app:layout_constraintTop_toTopOf="@+id/redirectHostCardView">
-
-        <ImageView
-            android:id="@+id/redirectHostImageView"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_margin="5dp"
-            android:contentDescription="@string/redirect_hosts_label"
-            android:elevation="15dp"
-            app:srcCompat="@drawable/baseline_compare_arrows_24"
-            app:tint="@color/redirected" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
+    <!-- main sources card view -->
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/sourcesCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:stateListAnimator="@animator/state_card_raiser"
         app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardMaxElevation="6dp"
         app:contentPadding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allowedHostCardView">
+        app:layout_constraintTop_toBottomOf="@id/allowedHostCardView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/sourceImageView"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginBottom="16dp"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
                 android:contentDescription="@string/icon_update_status"
-                app:layout_constraintBottom_toTopOf="@id/stateTextView"
-                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintBottom_toTopOf="@id/sourcesProgressBar"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.25"
-                app:srcCompat="@drawable/ic_collections_bookmark_24dp">
+                app:srcCompat="@drawable/ic_collections_bookmark_24dp" />
 
-            </ImageView>
-
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/upToDateSourcesTextView"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:gravity="center"
-                app:layout_constraintEnd_toStartOf="@id/checkForUpdateImageView"
-                app:layout_constraintHorizontal_bias="0.66"
-                app:layout_constraintHorizontal_weight="2"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toStartOf="@id/checkForUpdate"
                 app:layout_constraintStart_toEndOf="@id/sourceImageView"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="3 up-to-date sources" />
 
-            <ImageView
-                android:id="@+id/checkForUpdateImageView"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:contentDescription="@string/check_hosts_update_description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_sync_24dp" />
-
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/outdatedSourcesTextView"
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:gravity="center"
-                app:layout_constraintEnd_toStartOf="@id/updateImageView"
-                app:layout_constraintHorizontal_bias="0.66"
-                app:layout_constraintHorizontal_weight="2"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toStartOf="@id/updateSources"
                 app:layout_constraintStart_toEndOf="@id/sourceImageView"
                 app:layout_constraintTop_toBottomOf="@id/upToDateSourcesTextView"
                 tools:text="2 outdated sources" />
 
-            <ImageView
-                android:id="@+id/updateImageView"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="16dp"
-                android:contentDescription="@string/update_hosts_description"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/checkForUpdate"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="@string/check_hosts_update_description"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:padding="5dp"
+                app:cornerRadius="24dp"
+                app:icon="@drawable/ic_sync_24dp"
+                app:iconGravity="textTop"
+                app:iconPadding="0dp"
+                app:iconSize="32dp"
+                app:iconTint="?colorControlNormal"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/checkForUpdateImageView"
-                app:srcCompat="@drawable/ic_get_app_24dp" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/updateSources"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/update_hosts_description"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:padding="5dp"
+                app:cornerRadius="24dp"
+                app:icon="@drawable/ic_get_app_24dp"
+                app:iconGravity="textTop"
+                app:iconPadding="0dp"
+                app:iconSize="32dp"
+                app:iconTint="?colorControlNormal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/checkForUpdate" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/sourcesProgressBar"
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
                 android:indeterminate="true"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/stateTextView"
-                app:layout_constraintTop_toBottomOf="@+id/outdatedSourcesTextView"
+                app:layout_constraintBottom_toTopOf="@id/stateTextView"
+                app:layout_constraintTop_toBottomOf="@id/updateSources"
+                app:trackCornerRadius="4dp"
+                app:trackThickness="8dp"
                 tools:visibility="visible" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/stateTextView"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="#00F00909"
+                android:layout_marginTop="4dp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/outdatedSourcesTextView"
+                app:layout_constraintTop_toBottomOf="@id/sourcesProgressBar"
                 tools:text="@string/status_check_source"
                 tools:visibility="visible" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/logCardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="34dp"
-        android:elevation="10dp"
-        app:cardCornerRadius="8dp"
-        app:contentPaddingBottom="16dp"
-        app:contentPaddingLeft="8dp"
-        app:contentPaddingRight="8dp"
-        app:contentPaddingTop="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/helpCardView"
-        app:layout_constraintEnd_toStartOf="@+id/badge1Space"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
-
-        <TextView
-            android:id="@+id/logTextView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/log_label" />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
+    <!-- logs card view -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:elevation="10dp"
-        android:shape="ring"
-        app:cardCornerRadius="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/logCardView"
-        app:layout_constraintEnd_toEndOf="@+id/logCardView"
-        app:layout_constraintStart_toStartOf="@+id/logCardView"
-        app:layout_constraintTop_toTopOf="@+id/logCardView">
+        android:translationY="4dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@id/logCardView"
+        app:layout_constraintEnd_toEndOf="@id/logCardView"
+        app:layout_constraintStart_toStartOf="@id/logCardView"
+        app:layout_constraintTop_toTopOf="@id/logCardView"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardView.Round">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/helpImageView"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="5dp"
             android:contentDescription="@string/log_label"
-            android:elevation="15dp"
+            android:padding="5dp"
             app:srcCompat="@drawable/ic_outline_rule_24" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/helpCardView"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/logCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:elevation="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
         app:contentPaddingTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toStartOf="@+id/badge2Space"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/badge1Space"
-        app:layout_constraintTop_toBottomOf="@+id/sourcesCardView"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintBottom_toBottomOf="@id/barrier"
+        app:layout_constraintEnd_toStartOf="@id/contentGuidelineVertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sourcesCardView">
 
-        <TextView
-            android:id="@+id/helpTextView"
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/help_label" />
+            android:paddingTop="16dp"
+            android:text="@string/log_label" />
+    </com.google.android.material.card.MaterialCardView>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
+    <!-- help and tips card view -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:elevation="10dp"
-        android:shape="ring"
-        app:cardCornerRadius="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/helpCardView"
-        app:layout_constraintEnd_toEndOf="@+id/helpCardView"
-        app:layout_constraintStart_toStartOf="@+id/helpCardView"
-        app:layout_constraintTop_toTopOf="@+id/helpCardView">
+        android:translationY="4dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@id/helpCardView"
+        app:layout_constraintEnd_toEndOf="@id/helpCardView"
+        app:layout_constraintStart_toStartOf="@id/helpCardView"
+        app:layout_constraintTop_toTopOf="@id/helpCardView"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardView.Round">
 
-        <ImageView
-            android:id="@+id/projectImageView"
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="5dp"
             android:contentDescription="@string/help_label"
-            android:elevation="15dp"
+            android:padding="5dp"
             app:srcCompat="@drawable/ic_help_24dp" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/supportCardView"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/helpCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="10dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
         app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
         app:contentPaddingBottom="16dp"
         app:contentPaddingLeft="8dp"
         app:contentPaddingRight="8dp"
         app:contentPaddingTop="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/helpCardView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/badge2Space"
-        app:layout_constraintTop_toBottomOf="@+id/sourcesCardView">
+        app:layout_constraintBottom_toBottomOf="@id/barrier"
+        app:layout_constraintEnd_toStartOf="@id/contentGuidelineVertical1"
+        app:layout_constraintStart_toEndOf="@id/contentGuidelineVertical"
+        app:layout_constraintTop_toBottomOf="@id/sourcesCardView">
 
-        <TextView
-            android:id="@+id/supportTextView"
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/support_label" />
+            android:paddingTop="16dp"
+            android:text="@string/help_label" />
+    </com.google.android.material.card.MaterialCardView>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
+    <!-- support card view -->
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:elevation="10dp"
-        android:shape="ring"
-        app:cardCornerRadius="75dp"
-        app:layout_constraintBottom_toTopOf="@+id/supportCardView"
-        app:layout_constraintEnd_toEndOf="@+id/supportCardView"
-        app:layout_constraintStart_toStartOf="@+id/supportCardView"
-        app:layout_constraintTop_toTopOf="@+id/supportCardView">
+        android:translationY="4dp"
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@id/supportCardView"
+        app:layout_constraintEnd_toEndOf="@id/supportCardView"
+        app:layout_constraintStart_toStartOf="@id/supportCardView"
+        app:layout_constraintTop_toTopOf="@id/supportCardView"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MaterialCardView.Round">
 
-        <ImageView
-            android:id="@+id/supportImageView"
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="5dp"
             android:contentDescription="@string/support_label"
-            android:elevation="15dp"
+            android:padding="5dp"
             app:srcCompat="@drawable/baseline_favorite_24" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/supportCardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
+        app:contentPaddingBottom="16dp"
+        app:contentPaddingLeft="8dp"
+        app:contentPaddingRight="8dp"
+        app:contentPaddingTop="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/barrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/contentGuidelineVertical1"
+        app:layout_constraintTop_toBottomOf="@id/sourcesCardView">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:text="@string/support_label" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- guides -->
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        app:layout_constraintTop_toBottomOf="@id/helpCardView"
-        tools:layout_editor_absoluteX="411dp" />
+        app:barrierDirection="bottom"
+        app:barrierMargin="16dp"
+        app:constraint_referenced_ids="logCardView,helpCardView,supportCardView"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/contentGuidelineVertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_end="32dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintGuide_percent="0.33333" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/contentGuidelineVertical1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintGuide_percent="0.66666" />
 </androidx.constraintlayout.widget.ConstraintLayout>

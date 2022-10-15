@@ -1,3 +1,9 @@
+## [6.0.6] - 2022-10-15
+
+- Removed all telemetry.
+- Added ThreeTenABP for JSR-310 replacement
+- Added [badmojr's 1Hosts](https://github.com/badmojr/1Hosts)
+
 ## [6.0.5] - 2022-07-25
 
 - Update libsu

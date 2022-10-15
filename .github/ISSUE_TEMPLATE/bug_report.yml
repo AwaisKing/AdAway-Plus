@@ -37,11 +37,11 @@ body:
     label: Device Configuration
     description: |
       Describe your device configuration as precise as possible. For exemple:
-        - **AdAway version**: 5.1.2
-        - **Ad-blocker mode**: root or vpn
-        - **Device**: Pixel 6a
+        - **AdAway version**: 6.0.3
+        - **Ad-blocker mode**: Root/VPN
+        - **Device**: OnePlus 7T Pro
         - **Android version**: 12
-        - **Root version**: Magisk 24.1
+        - **Root version**: Magisk 25.2
     value: |
         - AdAway version: 
         - Ad-blocker mode: 

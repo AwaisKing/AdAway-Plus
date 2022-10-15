@@ -17,7 +17,7 @@ It will generate an HTML (human readable) file at `app/build/reports/lint-result
 So before making a release, **ensure no new warning has been introduced**.
 
 ### SonarCloud analysis
-The AdAway application source code is [monitored by SonarCloud](https://sonarcloud.io/dashboard?id=org.adaway).    
+The AdAway application source code is [monitored by SonarCloud](https://sonarcloud.io/dashboard?id=org.pro.adaway).    
 The current version of the source code is analysed to find bugs, code smells and compute technical debt.
 The overall score may be not perfect, each new release should not increase it.    
 So before making a release, **ensure that no new bug or debt has been introduced**.
@@ -34,7 +34,7 @@ It follows the [Semantic Versioning](https://semver.org/) principle (_once the f
 
 ## 3 - Updating the changelog
 
-The AdAway project provides [a global changelog](CHANGELOG.md).  
+The AdAway Plus project provides [a global changelog](CHANGELOG.md).  
 Before releasing any new version, be sure to update the changelog to let users know what is inside each new version.
 
 ## 4 - Building release APK
@@ -79,7 +79,7 @@ The beta releases are only announced in the XDA development thread.
 
 ### Stable releases
 
-The stable releases are distributed through [GitHub releases](https://github.com/AdAway/AdAway/releases) and [F-Droid store](https://f-droid.org/packages/org.adaway/) and are posted of the first post of XDA development thread.
+The stable releases are distributed through [GitHub releases](https://github.com/AdAway/AdAway/releases) and [F-Droid store](https://f-droid.org/packages/org.pro.adaway/) and are posted of the first post of XDA development thread.
 Once ready, create and push a tag on GitHub repository using  `vX.Y.Z` format (or `vX.Y.Zb` for pre-releases).
 To publish the application in GitHub:
 
@@ -88,4 +88,4 @@ To publish the application in GitHub:
 * Upload apk binary to the release.
 
 Pushing a tag will publish the application to F-Droid store.
-It might takes some days to update but if it does not, build logs are available at the following address: `https://monitor.f-droid.org/builds/log/org.adaway/<versioncode>`.
+It might takes some days to update but if it does not, build logs are available at the following address: `https://monitor.f-droid.org/builds/log/org.pro.adaway/<versioncode>`.

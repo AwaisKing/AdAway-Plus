@@ -11,8 +11,8 @@
         <SwitchPreferenceCompat
             app:defaultValue="@bool/pref_vpn_watchdog_enabled_def"
             app:key="@string/pref_vpn_watchdog_enabled_key"
-            app:title="@string/pref_vpn_service_monitor"
-            app:summary="@string/pref_vpn_service_monitor_description"/>
+            app:summary="@string/pref_vpn_service_monitor_description"
+            app:title="@string/pref_vpn_service_monitor" />
     </PreferenceCategory>
 
     <!-- App bypass-->
@@ -32,7 +32,7 @@
 
         <Preference
             app:defaultValue="@string/pref_vpn_excluded_user_apps_default"
-            app:fragment="org.adaway.ui.prefs.PrefsVpnExcludedAppsFragment"
+            app:fragment="org.pro.adaway.ui.prefs.PrefsVpnExcludedAppsFragment"
             app:key="@string/pref_vpn_excluded_user_apps_key"
             app:title="@string/pref_vpn_exclude_user_apps" />
     </PreferenceCategory>

@@ -20,28 +20,21 @@ jobs:
           java-version: 11
           cache: 'gradle'
 
-      - name: Restore SonarCloud packages cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-
       # Manually install latest build tools (takes up to two weeks to update in action images)
       - name: Install latest build tools
-        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "build-tools;32.0.0" --sdk_root=${ANDROID_SDK_ROOT}
+        run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "build-tools;33.0.0" --sdk_root=${ANDROID_SDK_ROOT}
 
       - name: Install NDK
         run: echo "y" | sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install "ndk;25.1.8937393" --sdk_root=${ANDROID_SDK_ROOT}
-
-      - name: Run unit tests
-        run: ./gradlew test --stacktrace
 
       - name: Build with Gradle
         run: ./gradlew assembleRelease --stacktrace
 
       # - name: Upload APK
       #   uses: actions/upload-artifact@v2
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       #   with:
       #     name: AdAway-dev
       #     path: app/build/outputs/apk/release/app-release-unsigned.apk
@@ -52,9 +45,3 @@ jobs:
           gradle-dependency-path: "app/build.gradle"
           gradle-build-module: ":app"
           gradle-build-configuration: "releaseCompileClasspath"
-
-      - name: Analyze project
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew -Dorg.gradle.jvmargs=-XX:MaxMetaspaceSize=512m sonarqube

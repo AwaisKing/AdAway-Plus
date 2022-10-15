@@ -20,6 +20,7 @@ robust, and easy. Features include:
 - Tiny static and run-time footprint
 - Source code is both ISO C and ISO C++ compliant
 - Works with any network stack with socket API, like LwIP or FreeRTOS-Plus-TCP
+- Optional [built-in IP stack](https://github.com/cesanta/mongoose/tree/master/mip) for bare metal or RTOS-enabled applications
 - Very easy to integrate: just copy `mongoose.c` and `mongoose.h` files to your build tree
 - Detailed [documentation](https://mongoose.ws/documentation/) and
   [tutorials](https://mongoose.ws/tutorials/)
@@ -43,26 +44,26 @@ robust, and easy. Features include:
 
 We take security seriously:
 1. Mongoose repository runs a
-  [continuous integration test powered by GitHub](https://github.com/cesanta/mongoose/actions),
-  which runs through hundreds of unit tests on every commit to the repository.
-  Our [unit tests](https://github.com/cesanta/mongoose/tree/master/test)
-  are built with modern address sanitizer technologies, which help to find
-  security vulnerabilities early
+   [continuous integration test powered by GitHub](https://github.com/cesanta/mongoose/actions),
+   which runs through hundreds of unit tests on every commit to the repository.
+   Our [unit tests](https://github.com/cesanta/mongoose/tree/master/test)
+   are built with modern address sanitizer technologies, which help to find
+   security vulnerabilities early
 2. Mongoose repository is integrated into Google's
-  [oss-fuzz continuous fuzzer](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:mongoose)
-  which scans for potential vulnerabilities continuously
+   [oss-fuzz continuous fuzzer](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:mongoose)
+   which scans for potential vulnerabilities continuously
 3.  We receive periodic vulnerability reports from the independent security
-  groups like
-  [Cisco Talos](https://www.cisco.com/c/en/us/products/security/talos.html),
-  [Microsoft Security Response Center](https://www.microsoft.com/en-us/msrc),
-  [MITRE Corporation](https://www.mitre.org/),
-  [Compass Security](https://www.compass-security.com/en/) and others.
-  In case of the vulnerability found, we act according to the industry best
-  practice: hold on to the publication, fix the software and notify all our
-  customers that have an appropriate subscription
+    groups like
+    [Cisco Talos](https://www.cisco.com/c/en/us/products/security/talos.html),
+    [Microsoft Security Response Center](https://www.microsoft.com/en-us/msrc),
+    [MITRE Corporation](https://www.mitre.org/),
+    [Compass Security](https://www.compass-security.com/en/) and others.
+    In case of the vulnerability found, we act according to the industry best
+    practice: hold on to the publication, fix the software and notify all our
+    customers that have an appropriate subscription
 4. Some of our customers (for example NASA)
-  have specific security requirements and run independent security audits,
-  of which we get notified and in case of any issue, act similar to (3).
+   have specific security requirements and run independent security audits,
+   of which we get notified and in case of any issue, act similar to (3).
 
 
 # Contributions

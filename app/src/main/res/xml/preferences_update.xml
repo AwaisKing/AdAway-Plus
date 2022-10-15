@@ -37,5 +37,4 @@
             app:key="@string/pref_update_only_on_wifi_key"
             app:title="@string/pref_update_sync_unmetered_only" />
     </PreferenceCategory>
-
 </PreferenceScreen>

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<network-security-config>
+<network-security-config xmlns:tools="http://schemas.android.com/tools">
+    <!-- for HTTP (un-secure) connections -->
+    <base-config
+        cleartextTrafficPermitted="true"
+        tools:ignore="InsecureBaseConfiguration" />
+
     <domain-config>
         <domain includeSubdomains="true">localhost</domain>
         <trust-anchors>

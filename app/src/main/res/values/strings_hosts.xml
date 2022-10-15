@@ -6,6 +6,7 @@
     <string name="hosts_adaway_source">AdAway official hosts</string>
     <string name="hosts_stevenblack_source">StevenBlack Unified hosts</string>
     <string name="hosts_peterlowe_source">Pete Lowe blocklist hosts</string>
+    <string name="hosts_badmojr_source">Badmojr 1Hosts unified hosts</string>
     <!-- List -->
     <string name="hosts_not_available">not available</string>
     <string name="hosts_count">%s hosts</string>

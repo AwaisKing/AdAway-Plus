@@ -3,29 +3,24 @@ import com.android.build.gradle.internal.tasks.LibraryJniLibsTask
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 32
-    buildToolsVersion '32.0.0'
-    ndkVersion '25.1.8937393'
-    namespace 'org.adaway.webserver'
+    namespace 'org.pro.adaway.webserver'
+    compileSdk 33
 
     defaultConfig {
-        minSdkVersion 26
-        targetSdkVersion 32
+        minSdk 21
+        targetSdk 33
     }
 
     buildFeatures {
-        buildConfig = false
-        prefab = true
+        prefab true
+        buildConfig false
     }
 
+    ndkVersion '25.1.8937393'
     externalNativeBuild {
         ndkBuild {
             path 'jni/Android.mk'
         }
-    }
-
-    sonarqube {
-        skipProject = true
     }
 }
 
